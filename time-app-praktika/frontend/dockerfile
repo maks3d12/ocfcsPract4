@@ -1,0 +1,17 @@
+FROM node:alpine
+
+WORKDIR /time-app
+
+COPY package.json package-lock.json ./
+
+RUN npm install 
+
+COPY ./src ./src
+COPY index.html ./
+COPY vite.config.js ./
+
+
+EXPOSE 8984
+
+CMD [ "npm", "run", "dev" ]
+
